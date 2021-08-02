@@ -8,7 +8,7 @@ from lib import ycp_utility
 from lib.ycp import Ycp
 from lib.ycp_gui import Camera, Editor
 from lib.mail import AutoMail
-from src.resourceid import ElementID
+from lib.resourceid import ElementID
 # Initial rootdir
 rootdir = r"./src/deeplink_testcase/camera/"
 # Initialize Pass/Fail count
@@ -16,6 +16,8 @@ pass_count = 0
 fail_count = 0
 attached_list = []
 fail_list = []
+
+
 def check_pack_name(ycp_driver, pack_name):
     pass
     # current_name = ycp_driver.find_element_by_xpath(ElementID.pack_name).text
@@ -146,7 +148,7 @@ sys.stdout.close()
 # Attach log to lis
 attached_list.append(log_path)
 # Send report mail
-mail = AutoMail(report, attached_list)
+mail = AutoMail("Deeplink", report, attached_list)
 mail.send()
 
 

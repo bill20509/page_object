@@ -2,7 +2,7 @@ from appium import webdriver
 
 class Ycp:
     def __init__(self):
-        cap = {
+        self.cap = {
             "platformName": "Android",
             "platformVersion": "10",
             'deviceName': 'f769b7a',
@@ -11,5 +11,5 @@ class Ycp:
             "noReset": False
         }
         package_namme = "com.cyberlink.youperfect"
-        self.driver = webdriver.Remote("http://localhost:8100/wd/hub", cap)
+        self.driver = webdriver.Remote("http://localhost:8100/wd/hub", self.cap)
         self.driver.implicitly_wait(8)

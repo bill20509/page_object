@@ -1,47 +1,98 @@
-# Writen
+# Default status
+# Network: Disconnected
+# Premium: On
+# Launcher: Old
 import time
+import traceback
+import datetime
+import sys
 from lib import ycp_utility
 from lib.ycp import Ycp
 from lib.ycp_gui import Tutorial, Launcher, Setting, Camera
+from lib.mail import AutoMail
+# Initialize test result
+result = True
+attached_list = []
 
-time_start = time.time() #開始計時
 
-ycp_utility.clear_ycp_data()
-ycp = Ycp()
+def preview_limit_judge(info):
+    # preview size limit
+    preview = info["Preview"].split("x")
+    if max(int(preview[0]), int(preview[1])) > 2000:
+        ycp_utility.fail_prompt("Preview size > 2000")
+    else:
+        ycp_utility.pass_prompt("Preview size ")
 
 
-Tutorial = Tutorial(ycp.driver)
-Launcher = Launcher(ycp.driver)
-Setting = Setting(ycp.driver)
-Camera = Camera(ycp.driver)
+# Initialize log
+log_path = r"./log/preview_limit_" + str(datetime.date.today()).replace("-", "_") + "_log"
+sys.stdout = open(log_path, 'w')
 
-Tutorial.get_stared_click()
-# Launcher.churn_recovery_dialog_cancel_button_click()
-Launcher.old_setting_button_click()
 
-Setting.about_button_click()
-Setting.secrect_tech_open()
-Setting.turn_on_dev_debug()
-ycp.driver.back()
-ycp.driver.back()
-ycp.driver.back()
+try:
+    # <====== Initialize Start =====>
+    ycp_utility.clear_ycp_data()
+    ycp = Ycp()
+    tutorial = Tutorial(ycp.driver)
+    launcher = Launcher(ycp.driver)
+    setting = Setting(ycp.driver)
+    camera = Camera(ycp.driver)
+    # <====== Initialize End =====>
 
-# time.sleep(5)
-# Launcher.promo_close_button()
-# Launcher.promo_close_button()
-Launcher.old_camera_button_click()
+    # <====== Tutorial Start =====>
+    tutorial.get_stared_click()
+    # <====== Tutorial End =====>
 
-time.sleep(3)
-Camera.alert_dialog_positive_click()
-Camera.permission_allow_button()
-Camera.permission_foreground_only_button()
-Camera.permission_allow_button()
-Camera.bipa_agree_click()
-time.sleep(1)
-Camera.tap_middle()
-ycp_utility.preview_limit_judge(ycp_utility.camera_info_parse(Camera.get_camera_info()))
-ycp.driver.quit()
-time_end = time.time()    #結束計時
-time_c = time_end - time_start   #執行所花時間
-print('time cost', time_c, 's')
+    # <====== Launcher Start =====>
+    # launcher.churn_recovery_dialog_cancel_button_click()
+    launcher.old_setting_button_click()
+    # <====== Launcher End =====>
 
+    # <====== Setting Start =====>
+    setting.about_button_click()
+    setting.secrect_tech_open()
+    setting.turn_on_dev_debug()
+    ycp.driver.back()
+    ycp.driver.back()
+    ycp.driver.back()
+    # <====== Setting End =====>
+
+    # <====== Launcher Start =====>
+    # time.sleep(5)
+    # launcher.promo_close_button()
+    # launcher.promo_close_button()
+    launcher.old_camera_button_click()
+    # <====== Launcher End =====>
+
+    # <====== Camera Start =====>
+    time.sleep(3)
+    camera.alert_dialog_positive_click()
+    camera.permission_allow_button()
+    camera.permission_foreground_only_button()
+    camera.permission_allow_button()
+    camera.bipa_agree_click()
+    time.sleep(1)
+    camera.tap_middle()
+    # <====== Camera End =====>
+
+    # <====== Test Start =====>
+    info = ycp_utility.get_camera_info(ycp.driver)
+    preview_limit_judge(ycp_utility.camera_info_parse(info))
+    ycp.driver.quit()
+    # <====== Test End =====>
+except Exception as e:
+    result = False
+    print(e)
+    traceback.print_exc()
+finally:
+    sys.stdout.close()
+    attached_list.append(log_path)
+    report = "Preview limit resut: " + "Pass" if result else "Fail\n\n"
+    report += "\n\t SPEC: wiki.perfectcorp.com/trac/youperfect/wiki/Photo_Quality_Memory_Limitation"
+    report += """\n\t Preview Size limit to 2000.
+\tUse YMK preview table. (If not in table, go original logic.)
+\tAndroid Version < Android.M.
+\tTotal Memory < 1.5GB."""
+    # Send report
+    mail = AutoMail("Preview_Limit", report, attached_list)
+    mail.send()

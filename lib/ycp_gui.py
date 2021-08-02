@@ -1,7 +1,7 @@
 from lib import ycp_utility
 import subprocess
 
-from src.resourceid import ElementID
+from .resourceid import ElementID
 import time
 
 
@@ -112,27 +112,27 @@ class Editor:
         e11 = self.driver.find_elements_by_id("com.cyberlink.youperfect:id/effect_panel_item_name")
         e11[num].click()  #
 
-    def iterate_effect_filter(self):
-        effect_list = ["Original", "Portrait"]
-        while True:
-            e14 = self.driver.find_elements_by_id("com.cyberlink.youperfect:id/effect_panel_item_name")
-            no_element = True
-            for i in range(len(e14)):
-                # for j in range(len(e14)):
-                #     print(e14[j].text)
-                if e14[i].text in effect_list:
-                    continue
-                else:
-                    no_element = False
-                    effect_list.append(e14[i].text)
-                    print(e14[i].text)
-                    name = e14[i].text
-                    e14[i].click()
-                    time.sleep(0.1)
-                    ycp_utility.screen_shot(name)
-                    break
-            if no_element == True:
-                break
+    # def iterate_effect_filter(self):
+    #     effect_list = ["Original", "Portrait"]
+    #     while True:
+    #         e14 = self.driver.find_elements_by_id("com.cyberlink.youperfect:id/effect_panel_item_name")
+    #         no_element = True
+    #         for i in range(len(e14)):
+    #             # for j in range(len(e14)):
+    #             #     print(e14[j].text)
+    #             if e14[i].text in effect_list:
+    #                 continue
+    #             else:
+    #                 no_element = False
+    #                 effect_list.append(e14[i].text)
+    #                 print(e14[i].text)
+    #                 name = e14[i].text
+    #                 e14[i].click()
+    #                 time.sleep(0.1)
+    #                 ycp_utility.screen_shot(name)
+    #                 break
+    #         if no_element == True:
+    #             break
 
 
 class Camera:
@@ -150,10 +150,6 @@ class Camera:
 
     def tap_middle(self):
         ycp_utility.tap_middle()
-
-    def get_camera_info(self):
-        info = self.driver.find_element_by_id(ElementID.camera_info)
-        return info.text
 
     def photo_shot_click(self):
         ycp_utility.button_click(self.driver, ElementID.photo_shot, "Photo_shot click")

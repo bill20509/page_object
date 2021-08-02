@@ -8,7 +8,7 @@ import ssl
 import yaml
 
 class AutoMail:
-    def __init__(self, report, attached_files):
+    def __init__(self, title, report, attached_files):
         # 寄件者使用的Gmail帳戶資訊
         self.gmail_user = 'pfautomail@gmail.com'
         self.gmail_password = 'PerfectCorp24725102'
@@ -18,11 +18,11 @@ class AutoMail:
         self.to_address = ['bill_zhong@perfectcorp.com', 'billzhongtest1@gmail.com']
 
         today = str(datetime.date.today()).replace("-", "_")
-        self.Subject = "[Auto Test Report] Deeplink report({})".format(today)
+        self.Subject = "[Auto Test Report] {} report({})".format(title, today)
         self.contents = """
             Hi all,
            
-            Here is Deeplink {} report
+            Here is {} {} report
            
             {}
             
@@ -30,7 +30,7 @@ class AutoMail:
             
            
             Best Regards
-        """.format(today, report)
+        """.format(title, today, report)
         # 設定附件（可設多個）
         self.attachments = attached_files
     def send(self):
@@ -48,7 +48,7 @@ class AutoMail:
                 add_file.set_payload(fp.read())
             # encoders.encode_base64(add_file)
             today = str(datetime.date.today()).replace("-", "_")
-            add_file.add_header('Content-Disposition', 'attachment', filename='deeplink_{}_log.log'.format(today))
+            add_file.add_header('Content-Disposition', 'attachment', filename=file + ".log")
             mail.attach(add_file)
 
         # 設定smtp伺服器並寄發信件

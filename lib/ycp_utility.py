@@ -4,6 +4,8 @@ import os
 import io
 import re
 import json
+import traceback
+from .resourceid import ElementID
 from pymediainfo import MediaInfo
 from PIL import Image
 
@@ -16,8 +18,8 @@ def fail_prompt(prompt):
     print("[Failed] " + prompt + " Failed")
 
 
-def get_latest_filename():
-    command = r'adb shell "ls -t sdcard/DCIM/YouCam\ Perfect/ | head -1"'
+def get_latest_filename(ycp):
+    command = r'adb {} shell "ls -t sdcard/DCIM/YouCam\ Perfect/ | head -1"'.format(ycp.cap["deviceName"])
     return os.popen(command).read().strip()
 
 
@@ -31,7 +33,7 @@ def pulled_latest_file():
     try:
         subprocess.run(command, check=True)
     except subprocess.CalledProcessError:
-        print("pulled error")
+        traceback.print_exc()
 
 
 def pulled_from_dcim(img_name):
@@ -46,19 +48,20 @@ def screen_shot(src_name):
     os.system("adb shell screencap -p /sdcard/DCIM/ScreenShots/" + img_name)
 
 
-def judge():
-    input_hash = imagehash.dhash(Image.open("./pulled_from_device/latest.png"))
-    dest_hash = imagehash.dhash(Image.open("./sample_output/sample.jpg"))
-    print(input_hash - dest_hash)
-    if input_hash == dest_hash:
-        pass_prompt("image hash judge")
-    else:
-        fail_prompt("image hash judge")
+# def judge():
+#     input_hash = imagehash.dhash(Image.open("./pulled_from_device/latest.png"))
+#     dest_hash = imagehash.dhash(Image.open("./sample_output/sample.jpg"))
+#     print(input_hash - dest_hash)
+#     if input_hash == dest_hash:
+#         pass_prompt("image hash judge")
+#     else:
+#         fail_prompt("image hash judge")
 
 def get_element(driver, element_id, prompt):
     try:
         return driver.find_element_by_id(element_id)
     except:
+        traceback.print_exc()
         fail_prompt(prompt)
     else:
         pass_prompt(prompt)
@@ -77,6 +80,7 @@ def button_click(driver, element_id, prompt):
     try:
         driver.find_element_by_id(element_id).click()
     except:
+        traceback.print_exc()
         fail_prompt(prompt)
     else:
         pass_prompt(prompt)
@@ -86,6 +90,7 @@ def button_click_xpath(driver, element_xpath, prompt):
     try:
         driver.find_element_by_xpath(element_xpath).click()
     except:
+        traceback.print_exc()
         fail_prompt(prompt)
     else:
         pass_prompt(prompt)
@@ -121,6 +126,11 @@ def camera_info_parse(info):
     return info_dict
 
 
+def get_camera_info(ycp_driver):
+    info = ycp_driver.find_element_by_id(ElementID.camera_info)
+    return info.text
+
+
 def get_device_model():
     result = subprocess.run(['adb', "shell", "getprop", "ro.product.model"], stdout=subprocess.PIPE)
     return result.stdout.decode("utf-8").strip()
@@ -141,15 +151,6 @@ def get_device_merory():
 def get_device_brand():
     result = subprocess.run(['adb', "shell", "getprop", "ro.product.brand"], stdout=subprocess.PIPE)
     return result.stdout.decode("utf-8").strip()
-
-
-def preview_limit_judge(info):
-    # preview size limit
-    preview = info["Preview"].split("x")
-    if max(int(preview[0]), int(preview[1])) > 2000:
-        print("[Failed] Preview size > 2000")
-    else:
-        print("[Pass] Preview size Pass")
 
 
 def brand_block():

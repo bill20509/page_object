@@ -1,4 +1,5 @@
 class ElementID:
+    # <===== Tutorial Start ===== >
     tutorial_page = "com.cyberlink.youperfect:id/tutorialViewPager"
     tutorial_facebook_button = "com.cyberlink.youperfect:id/tutorial_fb_login"
     tutorial_email_button = "com.cyberlink.youperfect:id/tutorial_email_login"
@@ -10,7 +11,7 @@ class ElementID:
     tutorial_get_stared = "com.cyberlink.youperfect:id/callToAction"
     churn_recovery_dialog_cancel_button = "com.cyberlink.youperfect:id/churn_recovery_dialog_cancel_button"
     bipa_agree_button = "com.cyberlink.youperfect:id/agree_btn"
-
+    # <===== Tutorial End ===== >
     # launcher
     cameraButton = "com.cyberlink.youperfect:id/cameraButton" #new
     old_camera = "com.cyberlink.youperfect:id/launcher_camera" #old

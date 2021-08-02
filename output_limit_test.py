@@ -1,3 +1,6 @@
+# Default Status
+# Network: Disconnected
+# Premium: On
 import time
 import traceback
 import sys
@@ -5,37 +8,47 @@ from lib import ycp_utility
 from lib.ycp import Ycp
 from lib.ycp_gui import Tutorial, Launcher, Setting, Camera
 import datetime
+
 # Initialize report
 result = ""
+
 # Initialize log
-# log_path = r"./log/deeplink_" + str(datetime.date.today()).replace("-", "_") + "_log"
-# sys.stdout = open(log_path, 'w')
+log_path = r"./log/output_limit_" + str(datetime.date.today()).replace("-", "_") + "_log"
+sys.stdout = open(log_path, 'w')
+
 try:
+    # <===== Initialize Start =====>
     ycp_utility.clear_ycp_data()
     ycp = Ycp()
-    latest_file = ycp_utility.get_latest_filename()
-
+    latest_file = ycp_utility.get_latest_filename(ycp) # To make sure the latest_file is updated
     Tutorial = Tutorial(ycp.driver)
     Launcher = Launcher(ycp.driver)
     Setting = Setting(ycp.driver)
     Camera = Camera(ycp.driver)
+    # <===== Initialize End =====>
 
+    # <===== Tutorial Start =====>
     Tutorial.get_stared_click()
     # Launcher.churn_recovery_dialog_cancel_button_click()
     Launcher.old_camera_button_click()
-    # time.sleep(3)
+    # <===== Tutorial End =====>
+
+    # <===== Camera Start =====>
     Camera.alert_dialog_positive_click()
     Camera.permission_allow_button()
     Camera.permission_foreground_only_button()
     Camera.permission_allow_button()
     Camera.bipa_agree_click()
-    time.sleep(1)
+    time.sleep(1)  # Sleep 1s to avoid tap middle too fast
     Camera.tap_middle()
     Camera.photo_shot_click()
     Camera.apply_button_click()
-    while latest_file == ycp_utility.get_latest_filename():
+    # <===== Camera End =====>
+
+    # To wait image file update
+    while latest_file == ycp_utility.get_latest_filename(ycp):
         continue
-    latest_file = ycp_utility.get_latest_filename()
+    latest_file = ycp_utility.get_latest_filename(ycp)
 
     ycp_utility.output_limit_judge("High")
     if ycp_utility.brand_block():
@@ -85,11 +98,10 @@ try:
         continue
     latest_file = ycp_utility.get_latest_filename()
     ycp_utility.output_limit_judge("Smart")
-
+    ycp.driver.quit()
 except Exception as e:
     print("exceprtion occur")
     traceback.print_exc()
-    print(e)
 finally:
+
     print("report time")
-# # ycp.driver.quit()
