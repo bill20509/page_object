@@ -1,0 +1,14 @@
+1.把test 跟 gui 操作分開
+2.utility應該為通用工具 不該放test/ 有些地方應該要用assert
+3.規劃好資料夾分類(資料夾位置寫死 or flex?
+4.ycp_utility pull / screen shot 之類的應該Dynamic 不能寫死
+5.adb -s 應該要加上
+6.check pack name
+7.mail
+8.auto test report
+9.BC
+10.Refactor outputlimit/preview_limit
+memo:
+FRAME跟EFFECT的實作不一樣...
+selected屬性 為 true
+buy_icon?

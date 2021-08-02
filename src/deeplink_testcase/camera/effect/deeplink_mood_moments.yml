@@ -1,0 +1,8 @@
+app_name: com.cyberlink.youperfect
+link: ycp://action_takephoto?try_effect_pack=5dd6d1ae-bd1a-4c92-9107-c571572a0585&try_effect=2f5851d8-5f82-4f0d-85a0-78676305d696
+room: Camera
+entry: EFFECT
+Tab:
+ EFFECT:
+  entry_name: Mood Moments 03
+  adjust: false

@@ -1,0 +1,12 @@
+app_name: com.cyberlink.youperfect
+link: ycp://action_pickphoto/effect?TryEffect=B8BC891C-5287-4ce0-9B91-3C8D6A8A6428&editImageId=YouCamPerfectSample-15
+room: Edit
+entry: Effects
+sample: true
+picture:
+ folder: Dowload
+ index: 1
+tab:
+ FILTER:
+  entry_name: Aesthetic
+  intensity: 65

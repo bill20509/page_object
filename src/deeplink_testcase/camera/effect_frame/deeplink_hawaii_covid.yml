@@ -1,0 +1,11 @@
+app_name: com.cyberlink.youperfect
+link: ycp://action_takephoto?try_effect_pack=aab7eefa-f33d-4b90-9740-5678ae3203f4&try_effect=da04fe4c-9faa-43f5-b7eb-71fda2ed650c&try_frame=f5cbd191-df96-4870-8f28-af863b9e3f55
+room: Camera
+entry: EFFECT
+Tab:
+ EFFECT:
+  entry_name: Hawaii 03
+  adjust: false
+ FRAME:
+  entry_name: single_frame
+  adjust: false;

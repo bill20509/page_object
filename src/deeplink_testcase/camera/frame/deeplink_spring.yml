@@ -1,0 +1,10 @@
+app_name: com.cyberlink.youperfect
+link: ycp://action_takephoto?try_frame_pack=2cd94c4f-e31d-4da0-af0a-a09c2dafbd12&try_frame=1d5892da-f6b1-4df9-950c-87426ecabf44
+room: Camera
+entry: FRAME
+Tab:
+ FRAME:
+  entry_name: Spring 05
+  adjust: false
+
+

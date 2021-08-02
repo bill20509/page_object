@@ -1,0 +1,13 @@
+Cam: 3136x4224, 1.35
+Crop: 1080x1440, (4:3)
+Preview: 1200x1600
+Screen: 1080x2130
+CalcRotate: true
+HwFocus: false|false (0)
+HwMetering: true (1)
+HwExposure: true|true (24|-24)
+HwFace: true|true (10)
+HwOrientation: 270
+HwCameraCount: 2
+CaptureFromPreview: false
+Live Venus Use AI: false|false

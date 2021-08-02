@@ -1,0 +1,8 @@
+app_name: com.cyberlink.youperfect
+link: ycp://action_takephoto?try_effect_pack=e8d6753d-5365-47d3-9089-b7ef98356319&try_effect=4e92310c-336f-44e2-8f43-31ccb5b0955b
+room: Camera
+entry: EFFECT
+Tab:
+ EFFECT:
+  entry_name: Lighten
+  adjust: false

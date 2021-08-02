@@ -1,0 +1,15 @@
+app_name: com.cyberlink.youperfect
+link: ycp://action_takephoto?try_effect_pack=c6036463-9d66-4a61-af58-276c9f5d7f75&try_effect=eb45354c-9d4b-49d0-adb4-ddf27a801685
+room: Camera
+entry: EFFECT
+Tab:
+ EFFECT:
+  entry_name: Kira Kira 01
+  adjust: true
+  intensity:
+  - 20
+  - 22
+  - 60
+  - 10
+
+

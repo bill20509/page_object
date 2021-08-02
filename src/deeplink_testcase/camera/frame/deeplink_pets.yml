@@ -1,0 +1,10 @@
+app_name: com.cyberlink.youperfect
+link: ycp://action_takephoto?try_frame_pack=9072a292-c5d0-453e-a019-ba0665c5d190&try_frame=14aa21b4-ea1c-48eb-bf6f-8fe82e0c8c3b
+room: Camera
+entry: FRAME
+Tab:
+ FRAME:
+  entry_name: Pets 02
+  adjust: false
+
+
