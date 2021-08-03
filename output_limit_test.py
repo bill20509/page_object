@@ -4,7 +4,7 @@
 import time
 import traceback
 import sys
-from lib.mail import AutoMail
+from lib.mail import *
 from lib import ycp_utility
 from lib.ycp import Ycp
 from lib.ycp_gui import Tutorial, Launcher, Setting, Camera
@@ -189,17 +189,16 @@ except Exception as e:
 finally:
     sys.stdout.close()
     attached_list.append(log_path)
-    report = """\
-<html>
-  <head></head>
-  <body>
-    <p>Hi!<br>
-       How are you?<br>
-       Here is the <a href="http://www.python.org">link</a> you wanted.
-    </p>
-  </body>
-</html>
-"""
+    info = ycp_utility.get_hardware_info()
     # Send report
-    mail = AutoMail("Output_Limit", report, attached_list)
+    mail_html = attach_html(r"./src/report_template/output_limit_report.html",
+                            {"title": "Output_Limit",
+                             "result": "Pass" if result else "Fail",
+                             "device_brand": info["device_brand"],
+                             "device_model": info["device_model"],
+                             "device_memory": info["device_memory"],
+                             "device_api": info["device_api"]
+                             })
+
+    mail = AutoMail("Output_Limit", mail_html, attached_list)
     mail.send()

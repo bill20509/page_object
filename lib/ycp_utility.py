@@ -152,6 +152,14 @@ def get_device_brand():
     return result.stdout.decode("utf-8").strip()
 
 
+def get_hardware_info():
+    info = dict()
+    info["device_model"] = get_device_model()
+    info["device_api"] = get_device_api_version()
+    info["device_memory"] = get_device_merory()
+    info["device_brand"] = get_device_brand()
+    return info
+
 def brand_block():
     with open('./src/block_list.json') as f:
         block_list = json.load(f)

@@ -1,5 +1,6 @@
 # Default status
 # Network: Disconnected
+# Login: Off
 # Premium: On
 # Launcher: Old
 import time
@@ -9,7 +10,7 @@ import sys
 from lib import ycp_utility
 from lib.ycp import Ycp
 from lib.ycp_gui import Tutorial, Launcher, Setting, Camera
-from lib.mail import AutoMail
+from lib.mail import *
 # Initialize test result
 result = True
 attached_list = []
@@ -87,12 +88,10 @@ except Exception as e:
 finally:
     sys.stdout.close()
     attached_list.append(log_path)
-    report = "Preview limit resut: " + "Pass" if result else "Fail\n\n"
-    report += "\n\t SPEC: wiki.perfectcorp.com/trac/youperfect/wiki/Photo_Quality_Memory_Limitation"
-    report += """\n\t Preview Size limit to 2000.
-\tUse YMK preview table. (If not in table, go original logic.)
-\tAndroid Version < Android.M.
-\tTotal Memory < 1.5GB."""
+
     # Send report
-    mail = AutoMail("Preview_Limit", report, attached_list)
+    mail_html = attach_html(r"./src/report_template/preview_limit_report.html",
+                            {"title": "Preview_Limit",
+                             "result": "Pass" if result else "Fail"})
+    mail = AutoMail("Preview_Limit", mail_html, attached_list)
     mail.send()

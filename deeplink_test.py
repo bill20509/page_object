@@ -7,7 +7,7 @@ import traceback
 from lib import ycp_utility
 from lib.ycp import Ycp
 from lib.ycp_gui import Camera, Editor
-from lib.mail import AutoMail
+from lib.mail import *
 from lib.resourceid import ElementID
 # Initial rootdir
 rootdir = r"./src/deeplink_testcase/camera/"
@@ -139,16 +139,17 @@ for test_case in test_case_list:
         print("<========= Test Case: {} End =========>".format(test_case))
 
 # All test ends: report
-report = """Total Case:{}, PASS:{}, FAIL:{}.
-\tFail List: {}
-""".format(len(test_case_list), pass_count, fail_count, fail_list)
-print(report)
 sys.stdout.close()
-
 # Attach log to lis
 attached_list.append(log_path)
 # Send report mail
-mail = AutoMail("Deeplink", report, attached_list)
+mail_html = attach_html(r"./src/report_template/preview_limit_report.html",
+                            {"title": "Preview_Limit",
+                             "total_case": len(test_case_list),
+                             "pass_case": pass_count,
+                             "fail_case": fail_count
+                             })
+mail = AutoMail("Deeplink", mail_html, attached_list)
 mail.send()
 
 
