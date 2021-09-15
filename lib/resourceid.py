@@ -35,6 +35,7 @@ class ElementID:
     apply_button = "com.cyberlink.youperfect:id/toolBarApplyBtn"
 
     # camera
+    camera_hint = "com.cyberlink.youperfect:id/camera_hint"
     alertDialog_buttonPositive = "com.cyberlink.youperfect:id/alertDialog_buttonPositive"
     photo_permission_allow_button  = "com.android.permissioncontroller:id/permission_allow_button"
     permission_foreground_only_button = "com.android.permissioncontroller:id/permission_allow_foreground_only_button"

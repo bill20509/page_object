@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb255a0c-7b23-4819-963c-858404cf9cd0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ycp_auto_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ycp_auto_test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resourceid.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resourceid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ycp.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ycp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ycp_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ycp_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

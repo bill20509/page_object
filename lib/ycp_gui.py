@@ -154,6 +154,9 @@ class Camera:
     def __init__(self, ycp_driver):
         self.driver = ycp_driver
 
+    def camera_hint_click(self):
+        ycp_utility.button_click(self.driver, ElementID.camera_hint, "camera_hint")
+
     def alert_dialog_positive_click(self):
         ycp_utility.button_click(self.driver, ElementID.alertDialog_buttonPositive, "alertDialog_buttonPositive")
 
