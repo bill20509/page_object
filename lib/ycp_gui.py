@@ -4,28 +4,43 @@ import subprocess
 from .resourceid import ElementID
 import time
 
-
-class InstallTest:
+class UI:
     def __init__(self, ycp_driver):
         self.driver = ycp_driver
 
-    def install_check(self):
-        try:
-            command = "adb -s " + self.driver.cap["deviceName"] + " install \"" + self.driver.cap["app"] + "\""
-            subprocess.run(command, check=True)
-        except subprocess.CalledProcessError:
-            print("[Failed] Install Failed")
-        else:
-            print("[Pass] Install Pass")
+    def launcher_to_camera(self):
+        camera = Camera(self.driver)
+        camera.alert_dialog_positive_click()
+        camera.permission_allow_button()
+        camera.permission_foreground_only_button()
+        camera.permission_allow_button()
+        camera.bipa_agree_click()
+        camera.tap_middle()
 
-    def uninstall_check(self):
-        try:
-            command = "adb -s " + self.driver.cap["deviceName"] + " uninstall \"" + package_namme + "\""
-            subprocess.run(command, check=True)
-        except subprocess.CalledProcessError:
-            print("[Failed]  Uninstall Failed")
-        else:
-            print("[Pass] Uninstall Pass")
+    def tutorial_to_launcher(self):
+        pass
+
+# class InstallTest:
+#     def __init__(self, ycp_driver):
+#         self.driver = ycp_driver
+#
+#     def install_check(self):
+#         try:
+#             command = "adb -s " + self.driver.cap["deviceName"] + " install \"" + self.driver.cap["app"] + "\""
+#             subprocess.run(command, check=True)
+#         except subprocess.CalledProcessError:
+#             print("[Failed] Install Failed")
+#         else:
+#             print("[Pass] Install Pass")
+#
+#     def uninstall_check(self):
+#         try:
+#             command = "adb -s " + self.driver.cap["deviceName"] + " uninstall \"" + package_namme + "\""
+#             subprocess.run(command, check=True)
+#         except subprocess.CalledProcessError:
+#             print("[Failed]  Uninstall Failed")
+#         else:
+#             print("[Pass] Uninstall Pass")
 
 
 class Launcher:

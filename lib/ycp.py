@@ -6,8 +6,8 @@ class Ycp:
             "platformName": "Android",
             "platformVersion": "10",
             'deviceName': 'f769b7a',
-            "app": r"C:\Users\Bill God\Desktop\apk\YouPerfect-5.64.0.6715.55151740.apk",
-            "appWaitActivity": "com.cyberlink.*",
+            # "app": r"/Users/zhongbill/APK/YouPerfect-5.66.0.6913.57131809.apk",
+            # "appWaitActivity": "com.cyberlink.*",
             "noReset": False
         }
         package_namme = "com.cyberlink.youperfect"

@@ -1,0 +1,12 @@
+clear ycp data
+[Failed] tutorial_get_stared_click Failed
+[Failed] old_settingsButton Failed
+swipe
+[Failed] about_button Failed
+[Failed] secret open Failed
+[Failed] secret open Failed
+[Failed] secret open Failed
+[Failed] secret open Failed
+[Failed] secret open Failed
+Message: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: socket hang up
+
