@@ -1,24 +1,29 @@
 from lib import ycp_utility
 import subprocess
 
-from .resourceid import ElementID
+from .resourceid import ElementID, Implicitly_time
 import time
 
 class UI:
     def __init__(self, ycp_driver):
         self.driver = ycp_driver
 
-    def launcher_to_camera(self):
+    def camera_permissions(self):
         camera = Camera(self.driver)
-        camera.alert_dialog_positive_click()
-        camera.permission_allow_button()
-        camera.permission_foreground_only_button()
-        camera.permission_allow_button()
         camera.bipa_agree_click()
-        camera.tap_middle()
+
+    def launcher_to_camera(self):
+        launcher = Launcher(self.driver)
+        launcher.new_camera_button_click()
+        self.camera_permissions()
 
     def tutorial_to_launcher(self):
-        pass
+        tutorial = Tutorial(self.driver)
+        launcher = Launcher(self.driver)
+        tutorial.get_stared_click()
+        launcher.promo_close_button()
+        launcher.subscribe_now_close_button_click()
+        launcher.churn_recovery_dialog_cancel_button_click()
 
 # class InstallTest:
 #     def __init__(self, ycp_driver):
@@ -76,6 +81,9 @@ class Launcher:
     def survey_close_button(self):
         ycp_utility.button_click(self.driver, ElementID.survey_close, "survey_close")
 
+    def subscribe_now_close_button_click(self):
+        ycp_utility.button_click_xpath(self.driver, ElementID.subscribe_now_close_button, "subscribe_now_close_button")
+
 
 class Editor:
     def __init__(self, driver):
@@ -90,12 +98,19 @@ class Editor:
     def bipa_agree_click(self):
         ycp_utility.button_click(self.driver, ElementID.bipa_agree_button, "bipa_agree_button")
 
-    def select_download_album(self, folder):
-        select_folder = "//android.widget.TextView[contains(@text, '')]"
+    def select_download_album(self):
         ycp_utility.button_click_xpath(self.driver, ElementID.select_download_album, "select_download_album")
+
+    def select_album_with_name(self, fold_name):
+        select_folder = "//android.widget.TextView[contains(@text, '{0}')]".format(fold_name)
+        ycp_utility.button_click_xpath(self.driver, select_folder, "select_album_{}".format(fold_name))
 
     def select_first_picture(self):
         ycp_utility.button_click_xpath(self.driver, ElementID.select_first_picture, "select_first_picture")
+
+    def select_picture_with_number(self, number):
+        e11 = self.driver.find_elements_by_id(ElementID.photo_image)
+        e11[number].click()
 
     def promo_close_button(self):
         # time.sleep(10)
@@ -108,13 +123,13 @@ class Editor:
         ycp_utility.button_click(self.driver, ElementID.autoface_button, "autoface_button")
 
     def apply_button_click(self):
-        ycp_utility.button_click(self.driver, ElementID.apply_button, "apply_button")
+        ycp_utility.button_click(self.driver, ElementID.tool_bar_apply_button, "apply_button")
 
     def export_button_click(self):
         ycp_utility.button_click(self.driver, ElementID.export_button, "export_button")
 
     def subscribe_now_close_button_click(self):
-        ycp_utility.button_click(self.driver, ElementID.subscribe_now_close_button, "subscribe_now_close_button")
+        ycp_utility.button_click_xpath(self.driver, ElementID.subscribe_now_close_button, "subscribe_now_close_button")
 
     def ad_close_button_click(self):
         ycp_utility.button_click(self.driver, ElementID.ad_close_button, "ad_close_button")
@@ -127,6 +142,25 @@ class Editor:
         e11 = self.driver.find_elements_by_id("com.cyberlink.youperfect:id/effect_panel_item_name")
         e11[num].click()  #
 
+# <========= Sticker =============== >
+
+    def iterate_all_stickers(self, sticker_count):
+        # time.sleep(5)
+        for i in range(sticker_count - 5):
+            e11 = self.driver.find_elements_by_id(ElementID.sticker_panel_image)
+            select = 0
+            if i == 0:
+                select = 1
+            else:
+                select = 0
+            e11[select].click()
+            right_x = e11[select].location["x"]
+            right_y = e11[select].location["y"]
+            width = e11[select].size["width"]
+            self.driver.swipe(right_x + int(width/3), right_y, 0, right_y)
+        e11 = self.driver.find_elements_by_id(ElementID.sticker_panel_image)
+        for i in range(5):
+            e11[i].click()
     # def iterate_effect_filter(self):
     #     effect_list = ["Original", "Portrait"]
     #     while True:
@@ -242,6 +276,31 @@ class Setting:
     def __init__(self, ycp_driver):
         self.driver = ycp_driver
 
+    def iap_open(self):
+        self.driver.implicitly_wait(Implicitly_time.IMPLICITLY_WAIT_FAST)
+        flag = False
+        while not flag:
+            ycp_utility.swipe_down()
+            try:
+                e11 = self.driver.find_element_by_xpath(ElementID.iap_subs)
+                e11.click()
+                flag = True
+            except Exception as e:
+                continue
+        self.driver.implicitly_wait(Implicitly_time.IMPLICITLY_WAIT_SLOW)
+
+    def guid_clipboard_open(self):
+        self.driver.implicitly_wait(Implicitly_time.IMPLICITLY_WAIT_FAST)
+        flag = False
+        while not flag:
+            ycp_utility.swipe_down()
+            try:
+                e11 = self.driver.find_element_by_xpath(ElementID.guid_clipboard)
+                e11.click()
+                flag = True
+            except Exception as e:
+                continue
+        self.driver.implicitly_wait(Implicitly_time.IMPLICITLY_WAIT_SLOW)
     def buttonPositive_click(self):
         ycp_utility.button_click(self.driver, ElementID.buttonPositive, "buttonPositive")
 

@@ -1,3 +1,6 @@
+class Implicitly_time:
+    IMPLICITLY_WAIT_FAST = 1
+    IMPLICITLY_WAIT_SLOW = 8
 class ElementID:
     # <===== Tutorial Start ===== >
     tutorial_page = "com.cyberlink.youperfect:id/tutorialViewPager"
@@ -32,7 +35,7 @@ class ElementID:
     buttonPositive = "com.cyberlink.youperfect:id/alertDialog_buttonPositive"
     permission_allow_button = "com.android.permissioncontroller:id/permission_allow_button"
 
-    apply_button = "com.cyberlink.youperfect:id/toolBarApplyBtn"
+    tool_bar_apply_button = "com.cyberlink.youperfect:id/toolBarApplyBtn"
 
     # camera
     camera_hint = "com.cyberlink.youperfect:id/camera_hint"
@@ -74,11 +77,14 @@ class ElementID:
     slider_right_value = "com.cyberlink.youperfect:id/beautifierRightText"
 
     # editor lobby
+    photo_image = "com.cyberlink.youperfect:id/photoItemImage"  # the picture in album
     beautify_tab = "com.cyberlink.youperfect:id/bottomToolBarBeautifyBtn"
     autoface_button = "com.cyberlink.youperfect:id/bestFaceImage"
     export_button = "com.cyberlink.youperfect:id/topToolBarExportBtn"
     bottomToolsFeatureName = "com.cyberlink.youperfect:id/bottomToolsFeatureName"
 
+    # editor stickers
+    sticker_panel_image = "com.cyberlink.youperfect:id/sticker_panel_item_image"
     #setting
     about_button = "//android.widget.TextView[contains(@text, 'About')]"
     quality_button = "//android.widget.TextView[contains(@text, 'Quality')]"
@@ -98,7 +104,8 @@ class ElementID:
     subscribe_now_close_button = "//android.widget.Image[contains(@text, 'wU+Yj0682o2Pj40FuTEAAggggASAAAJ4zXgKMAC3y2AGEtq4gQAAAABJRU5ErkJggg==')]"
     select_first_picture = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]"
     ad_close_button = "//android.view.View[contains(@text, 'x')]"
-
+    iap_subs = "//android.widget.TextView[contains(@text, '[Test Mode] Iap subscription')]/../android.widget.Switch"
+    guid_clipboard = "//android.widget.TextView[contains(@text, 'Enable Copy Guid Info in Clipboard')]/../android.widget.Switch"
     #deeplin test
     effect_tab ="com.cyberlink.youperfect:id/tab_selector_effects"
 

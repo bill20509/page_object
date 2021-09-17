@@ -96,7 +96,7 @@ def button_click_xpath(driver, element_xpath, prompt):
 
 
 def swipe_down():
-    command = "adb shell input swipe 500 1500 100 100"
+    command = "adb shell input swipe 500 1500 500 500"
     os.system(command)
 
 
