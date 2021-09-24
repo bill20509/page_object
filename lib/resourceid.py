@@ -82,7 +82,7 @@ class ElementID:
     autoface_button = "com.cyberlink.youperfect:id/bestFaceImage"
     export_button = "com.cyberlink.youperfect:id/topToolBarExportBtn"
     bottomToolsFeatureName = "com.cyberlink.youperfect:id/bottomToolsFeatureName"
-
+    indicatorsContainer = "com.cyberlink.youperfect:id/indicatorsContainer"
     # editor stickers
     sticker_panel_image = "com.cyberlink.youperfect:id/sticker_panel_item_image"
     #setting

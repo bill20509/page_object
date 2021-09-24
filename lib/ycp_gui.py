@@ -25,6 +25,12 @@ class UI:
         launcher.subscribe_now_close_button_click()
         launcher.churn_recovery_dialog_cancel_button_click()
 
+    def deeplink_to_editor(self):
+        launcher = Launcher(self.driver)
+        launcher.promo_close_button()
+        launcher.subscribe_now_close_button_click()
+
+
 # class InstallTest:
 #     def __init__(self, ycp_driver):
 #         self.driver = ycp_driver
@@ -145,22 +151,47 @@ class Editor:
 # <========= Sticker =============== >
 
     def iterate_all_stickers(self, sticker_count):
+        self.driver.update_settings({"imageMatchThreshold": 0.7})
+        container = self.driver.find_element_by_id(ElementID.indicatorsContainer)
+        contianer_x = container.rect["x"]
+        container_y = container.rect["y"]
+        container_h = container.rect["height"]
+        container_w = container.rect["width"]
+        # {'height': 1700, 'width': 1080, 'x': 0, 'y': 217}
+        def swipe_sticker(count):
+            sticker_el = self.driver.find_element_by_image("./close_button.jpg")
+            print(sticker_el.get_attribute("score"))
+            print(sticker_el.location)
+            sticker_x = int(sticker_el.location["x"])
+            sticker_y = int(sticker_el.location["y"])
+            const_x_offset = 100
+            const_y_offset = 40
+            start_x = sticker_x + const_x_offset
+            start_y = sticker_y + const_y_offset
+            end_x = contianer_x + container_w / 2 * int(count / 5) + const_x_offset
+            end_y = container_y + container_h / 5 * (count % 5) + const_y_offset
+            self.driver.swipe(start_x, start_y, end_x, end_y)
+            print(start_x, start_y, end_x, end_y)
+            # time.sleep(3)
+
         # time.sleep(5)
+        swipe_location_count = 0
         for i in range(sticker_count - 5):
+            # time.sleep(5)
             e11 = self.driver.find_elements_by_id(ElementID.sticker_panel_image)
-            select = 0
-            if i == 0:
-                select = 1
-            else:
-                select = 0
+            select = 1 if i == 0 else 0  # because first item was package itself.
             e11[select].click()
             right_x = e11[select].location["x"]
             right_y = e11[select].location["y"]
             width = e11[select].size["width"]
             self.driver.swipe(right_x + int(width/3), right_y, 0, right_y)
+            swipe_sticker(swipe_location_count)
+            swipe_location_count += 1
         e11 = self.driver.find_elements_by_id(ElementID.sticker_panel_image)
         for i in range(5):
             e11[i].click()
+            swipe_sticker(swipe_location_count)
+            swipe_location_count += 1
     # def iterate_effect_filter(self):
     #     effect_list = ["Original", "Portrait"]
     #     while True:
