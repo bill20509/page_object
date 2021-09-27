@@ -9,12 +9,22 @@ class ElementID:
     tutorial_login_more_button = "com.cyberlink.youperfect:id/tutorial_login_more"
     tutorial_have_account_button = "com.cyberlink.youperfect:id/tutorial_have_an_account"
     tutorial_welcome_description_button = "com.cyberlink.youperfect:id/welcome_description"
+    tutorial_next_button = "com.cyberlink.youperfect:id/tutorialNextBtn"  #Next Skip button
 
-    iap_promotion_page = "com.cyberlink.youperfect:id/bc_pull_to_refresh_layout "  # probably wrong
+    iap_promotion_page = "com.cyberlink.youperfect:id/bc_pull_to_refresh_layout"  # probably wrong
     tutorial_get_stared = "com.cyberlink.youperfect:id/callToAction"
     churn_recovery_dialog_cancel_button = "com.cyberlink.youperfect:id/churn_recovery_dialog_cancel_button"
     bipa_agree_button = "com.cyberlink.youperfect:id/agree_btn"
     # <===== Tutorial End ===== >
+
+    # <===== IAP Start ===== >
+    iap_back_button = "//*[@text="WjgmYW7eBA1wShX+7klJ8wPkmA1QrRWC0wAAAABJRU5ErkJggg=="]"
+    iap_continue_button = "d(text="Continue")"
+    iap_terms_of_use_link = "//*[@text="Terms of use"]"
+    iap_privacy_policy_link = "d(text="Privacy policy")"
+    iap_restore_purchase_button = "//*[@text="Restore purchase"]"
+    # <===== IAP End ===== >
+
     # launcher
     cameraButton = "com.cyberlink.youperfect:id/cameraButton" #new
     old_camera = "com.cyberlink.youperfect:id/launcher_camera" #old
