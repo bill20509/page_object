@@ -19,8 +19,9 @@ def fail_prompt(prompt):
 
 
 def get_latest_filename(ycp):
-    command = r'adb -s {} shell "ls -t sdcard/DCIM/YouCam\ Perfect/ | head -1"'.format(ycp.cap["deviceName"])
-    return os.popen(command).read().strip()
+    command_m = ["adb", "-s", ycp["deviceName"] , "shell", "ls", "-t", "/sdcard/DCIM/YouCam\ Perfect/", "|", "head", "-1"]
+    # command = r'adb -s {} shell "ls -t sdcard/DCIM/YouCam\ Perfect/ | head -1"'.format(ycp.cap["deviceName"])
+    return subprocess.check_output(command_m).strip().decode("utf-8") 
 
 
 def pulled_file(file_name):
