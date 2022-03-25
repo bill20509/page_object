@@ -1,8 +1,0 @@
-app_name: com.cyberlink.youperfect
-link: ycp://action_takephoto?try_frame=f5cbd191-df96-4870-8f28-af863b9e3f55
-room: Camera
-entry: FRAME
-Tab:
- FRAME:
-  entry_name: single_frame
-  adjust: false

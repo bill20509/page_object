@@ -1,8 +1,0 @@
-app_name: com.cyberlink.youperfect
-link: ycp://action_takephoto?try_effect_pack=fde011aa-7cea-4ad6-8f88-ea9bd6feff06&try_effect=0e1c2457-7b98-4942-902e-ef9a20728ccd
-room: Camera
-entry: EFFECT
-Tab:
- EFFECT:
-  entry_name: Fashion 06
-  adjust: false

@@ -1,9 +1,0 @@
-app_name: com.cyberlink.youperfect
-link: ycp://action_takephoto?beauty_tab=lip_size
-room: Camera
-entry: BEAUTIFY
-Tab:
- Beautify:
-  entry_name: Lip Size
-  feature:
-   lip_size: 0

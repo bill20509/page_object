@@ -1,8 +1,0 @@
-app_name: com.cyberlink.youperfect
-link: ycp://action_takephoto?try_effect_pack=CL_f33e006f-88b7-4a3b-84cc-9db3415b20c9&try_effect=bf3a8be7-9a37-408f-8295-936793be8ce4
-room: Camera
-entry: EFFECT
-Tab:
- EFFECT:
-  entry_name: Halloween 06
-  adjust: false

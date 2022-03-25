@@ -1,9 +1,0 @@
-app_name: com.cyberlink.youperfect
-link: ycp://action_takephoto?beauty_tab=nose_size
-room: Camera
-entry: BEAUTIFY
-Tab:
- Beautify:
-  entry_name: Nose Size
-  feature:
-   nose_size: 0

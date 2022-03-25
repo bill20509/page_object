@@ -1,9 +1,0 @@
-app_name: com.cyberlink.youperfect
-link: ycp://action_takephoto?beauty_tab=chin_shape
-room: Camera
-entry: BEAUTIFY
-Tab:
- Beautify:
-  entry_name: Chin Shape
-  feature:
-   chin_shape: 0
