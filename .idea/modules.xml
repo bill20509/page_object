@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/QA_UI_Test.iml" filepath="$PROJECT_DIR$/.idea/QA_UI_Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PFQA_APP_UI.iml" filepath="$PROJECT_DIR$/.idea/PFQA_APP_UI.iml" />
     </modules>
   </component>
 </project>

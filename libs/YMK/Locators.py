@@ -1,14 +1,16 @@
 # 各項element ID
 from selenium.webdriver.common.by import By
-
+from libs.element import Element
 class OpeningTutorialPageLocators:
-    GetStarted_button = "com.cyberlink.youcammakeup:id/getStartBtn"
+    # GetStarted_button = "com.cyberlink.youcammakeup:id/getStartBtn"
+    GetStarted_button = Element("com.cyberlink.youcammakeup:id/getStartBtn", By.ID, "xxx buton")
+    GetStarted_button2 = (By.ID, "com.cyberlink.youcammakeup:id/getStartBtn")
     Skip_button = "com.cyberlink.youcammakeup:id/tutorialSkipBtn"
     Skip_confirm_button = "com.cyberlink.youcammakeup:id/alertDialog_buttonPositive"
     Background_id = "com.cyberlink.youcammakeup:id/opening_tutorial_background"
 
 
-class Launcher_Locators:
+class LauncherLocators:
     Makeup_cam = "com.cyberlink.youcammakeup:id/cameraImage"
     Photo_makeup = "com.cyberlink.youcammakeup:id/photoMakeupImage"
     Store_button = "com.cyberlink.youcammakeup:id/shop_button"
@@ -22,13 +24,13 @@ class Launcher_Locators:
     Me_button = "com.cyberlink.youcammakeup:id/bc_me_icon"
 
 
-class MakeupCam_Locators:
+class MakeupCamLocators:
     BIPA_Agree = "com.cyberlink.youcammakeup:id/agree_btn"
     Feature_Notice_Close = "com.cyberlink.youcammakeup:id/close"
     Back = "com.cyberlink.youcammakeup:id/cameraBackIcon"
 
 
-class Aging_Locators:
+class AgingLocators:
     Try_it = "com.cyberlink.youcammakeup:id/tryItButton"
     Choose_photo = "com.cyberlink.youcammakeup:id/photoEntryButtonText"
     Take_photo = "com.cyberlink.youcammakeup:id/cameraEntryButtonText"

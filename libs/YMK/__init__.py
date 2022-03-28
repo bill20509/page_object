@@ -1,3 +1,2 @@
-import YMK_base
-import launcherpage
-import Locators
+from launcher_page import Launcher
+import locators
