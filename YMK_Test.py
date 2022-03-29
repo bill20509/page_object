@@ -20,7 +20,9 @@ class Test_Launcherpage(object):
         self.app = launcher_page.Launcher(driver)
 
     def test_launcher_camera_button(self):
-        self.app.find_element("id", "com.cyberlink.youcammakeup:id/cameraImage").click_makeupcam_button().check_BIPA_and_close()
+        self.app.find_element("id", "com.cyberlink.youcammakeup:id/cameraImage")\
+            .click_makeupcam_button()\
+            .check_BIPA_and_close()
 
 
 if __name__ == '__main__':
