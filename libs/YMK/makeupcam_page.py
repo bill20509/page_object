@@ -1,4 +1,4 @@
-from libs.YMK.locators import MakeupCamLocators
+from libs.YMK.Locators import MakeupCamLocators
 from libs.base import BasePage
 
 from selenium.webdriver.support.wait import WebDriverWait

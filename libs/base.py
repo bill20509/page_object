@@ -19,8 +19,8 @@ class BasePage(object):
             print(e)
             print("Cant' find " + element.element_desc)
         return BasePage(self.driver)
-    # check element is exist or not
-    def findElement(self, identify, element):
+
+    def find_element(self, identify, element): # check element is exist or not
         flag = None
         try:
             if identify == "id":
