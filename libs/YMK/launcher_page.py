@@ -1,4 +1,4 @@
-from libs.YMK.Locators import LauncherLocators
+from libs.YMK.locators import LauncherLocators
 from libs.base import BasePage
 from libs.YMK.makeupcam_page import MakeupCam
 
