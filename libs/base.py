@@ -7,7 +7,7 @@ class BasePage(object):
         self.driver = driver
 
     # Deep link
-    def deep_link_to_page(self, page_link, package_name):
+    def deeplink(self, page_link, package_name):
         print("Go to: " + page_link)
         self.driver.execute_script(
             "mobile: deepLink",
@@ -16,6 +16,7 @@ class BasePage(object):
                 "package": package_name
             }
         )
+        return self
 
     # take screenshot in current page
     def current_screenshot(self, screenshotname=None):

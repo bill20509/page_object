@@ -1,6 +1,6 @@
 from libs.YMK.locators import MakeupCamLocators
 from libs.base import BasePage
-from libs.YMK.launcher_page import Launcher
+import libs.YMK.launcher_page as launcher_page
 
 
 class MakeupCam(BasePage):
@@ -14,4 +14,4 @@ class MakeupCam(BasePage):
 
     def back_launcher(self):
         self.click_element(MakeupCamLocators.Back)
-        return Launcher(self.driver)
+        return launcher_page.Launcher(self.driver)

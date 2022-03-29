@@ -1,3 +1,4 @@
-from libs.YMK import locators
-from libs.YMK import launcher_page
-from libs.YMK import makeupcam_page
+import locators
+import launcher_page
+import makeupcam_page
+import YMK_base

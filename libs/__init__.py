@@ -1,3 +1,3 @@
-from libs import base
-from libs import element
+import base
+import element
 from libs.YMK import *
