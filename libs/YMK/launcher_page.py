@@ -1,6 +1,6 @@
 from libs.YMK.locators import LauncherLocators
-
 from libs.base import BasePage
+from libs.YMK.makeupcam_page import MakeupCam
 
 
 class Launcher(BasePage):
@@ -10,7 +10,7 @@ class Launcher(BasePage):
 
     def click_makeupcam_button(self):
         self.click_element(LauncherLocators.Makeup_cam)
-        return Launcher(self.driver)
+        return MakeupCam(self.driver)
         # self.driver.find_element_by_id(LauncherLocators.Makeup_cam).click()
 
     # def click_aging_tile(self):

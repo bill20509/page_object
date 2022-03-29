@@ -11,7 +11,7 @@ class OpeningTutorialPageLocators:
 
 
 class LauncherLocators:
-    Makeup_cam = "com.cyberlink.youcammakeup:id/cameraImage"
+    Makeup_cam = Element("com.cyberlink.youcammakeup:id/cameraImage", By.ID, "MakeupCam button")
     Photo_makeup = "com.cyberlink.youcammakeup:id/photoMakeupImage"
     Store_button = "com.cyberlink.youcammakeup:id/shop_button"
     Aging_tile = "com.cyberlink.youcammakeup:id/launcherAgingTile"
@@ -25,7 +25,7 @@ class LauncherLocators:
 
 
 class MakeupCamLocators:
-    BIPA_Agree = "com.cyberlink.youcammakeup:id/agree_btn"
+    BIPA_Agree = Element("com.cyberlink.youcammakeup:id/agree_btn", By.ID, "BIPA agree button")
     Feature_Notice_Close = "com.cyberlink.youcammakeup:id/close"
     Back = "com.cyberlink.youcammakeup:id/cameraBackIcon"
 
