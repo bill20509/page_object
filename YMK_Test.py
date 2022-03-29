@@ -19,6 +19,7 @@ class Test_Launcherpage(object):
         self.app = launcher_page.Launcher(driver)
 
     def test_launcher_camera_button(self):
+<<<<<<< HEAD
 
         self.app.deep_link_to_page(locators.DeepLink.MakeupCam_page, "com.cyberlink.youcammakeup")
         # self.app.back_launcher().click_makeupcam_button().check_BIPA()
@@ -39,6 +40,11 @@ class Test_Launcherpage(object):
     #         return False
 
     # def teardown_class(self):  # quit driver when test case done
+=======
+        self.app.find_element("id", "com.cyberlink.youcammakeup:id/cameraImage")\
+            .click_makeupcam_button()\
+            .check_BIPA_and_close()
+>>>>>>> 9e7535fd3c9c0f0eceb2ce19d5731061e743fc49
 
 
 if __name__ == '__main__':
