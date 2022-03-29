@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec7226eb-46d2-4163-95dd-a58d3ba4d85c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/YMK/makeupcam_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YMK_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/YMK_Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/YMK/Locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/YMK/Locators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/YMK/YMK_base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/YMK/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/YMK/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/YMK/launcher_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/YMK/launcher_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/YMK/launcherpage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/YMK/makeupcam_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/YMK/makeupcam_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/elements.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/base.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +27,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

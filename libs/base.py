@@ -6,12 +6,24 @@ class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
 
+    # Deep link
+    def deep_link_to_page(self, page_link, package_name):
+        print("Go to: " + page_link)
+        self.driver.execute_script(
+            "mobile: deepLink",
+            {
+                "url": page_link,
+                "package": package_name
+            }
+        )
+
     # take screenshot in current page
     def current_screenshot(self, screenshotname=None):
         currentphoto = 'currentphoto/'
         screenshotName = screenshotname
         self.driver.save_screenshot(currentphoto + screenshotName)
 
+    # Click button
     def click_element(self, element):
         try:
             self.driver.find_element(element.element_type, element.element_id).click()
@@ -19,6 +31,7 @@ class BasePage(object):
             print(e)
             print("Cant' find " + element.element_desc)
         return BasePage(self.driver)
+
     # check element is exist or not
     def findElement(self, identify, element):
         flag = None

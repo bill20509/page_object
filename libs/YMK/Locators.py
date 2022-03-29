@@ -1,10 +1,10 @@
 # 各項element ID
 from selenium.webdriver.common.by import By
 from libs.element import Element
+
+
 class OpeningTutorialPageLocators:
-    # GetStarted_button = "com.cyberlink.youcammakeup:id/getStartBtn"
     GetStarted_button = Element("com.cyberlink.youcammakeup:id/getStartBtn", By.ID, "xxx buton")
-    GetStarted_button2 = (By.ID, "com.cyberlink.youcammakeup:id/getStartBtn")
     Skip_button = "com.cyberlink.youcammakeup:id/tutorialSkipBtn"
     Skip_confirm_button = "com.cyberlink.youcammakeup:id/alertDialog_buttonPositive"
     Background_id = "com.cyberlink.youcammakeup:id/opening_tutorial_background"
@@ -27,7 +27,7 @@ class LauncherLocators:
 class MakeupCamLocators:
     BIPA_Agree = Element("com.cyberlink.youcammakeup:id/agree_btn", By.ID, "BIPA agree button")
     Feature_Notice_Close = "com.cyberlink.youcammakeup:id/close"
-    Back = "com.cyberlink.youcammakeup:id/cameraBackIcon"
+    Back = Element("com.cyberlink.youcammakeup:id/cameraBackIcon", By.ID, "Back to Launcher page")
 
 
 class AgingLocators:
@@ -53,5 +53,9 @@ class ChurnUserRecoveryLocators:
     Continue_button = "com.cyberlink.youcammakeup:id/churn_recovery_dialog_continue_button"
 
 
-class Me_Locators:
+class MeLocators:
     Settings_button = "com.cyberlink.youcammakeup:id/bc_top_bar_left_btn"
+
+
+class DeepLink:
+    MakeupCam_page = "ymk://action_makeupcam"

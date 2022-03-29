@@ -3,12 +3,11 @@ import time
 import pytest
 from appium import webdriver
 import sys
-
-
 from libs.app import App
 from libs.YMK import *
 
 # py.test --capture=no YMK_Test.py
+
 
 class Test_Launcherpage(object):
 
@@ -19,23 +18,11 @@ class Test_Launcherpage(object):
 
         self.app = launcher_page.Launcher(driver)
 
-        # self.caps = {
-        #     'udid': "PFYXINFELBU4HMU8",
-        #     "platformName": "Android",
-        #     "platformVersion": "11.0",
-        #     # "app": build_path,
-        #     "appPackage": "com.cyberlink.youcammakeup",
-        #     "appActivity": "com.cyberlink.youcammakeup.activity.SplashActivity",
-        #     "ignoreHiddenApiPolicyError": True,
-        #     "autoGrantPermissions": True,
-        #     "newCommandTimeout": 60,
-        #     "autoLaunch": True,
-        # }
-        # self.driver = webdriver.Remote("http://localhost:4723/wd/hub", self.caps)
-        # self.driver.implicitly_wait(5)
-
     def test_launcher_camera_button(self):
-        self.app.findElement("id", "com.cyberlink.youcammakeup:id/cameraImage").click_makeupcam_button().check_BIPA_and_close()
+
+        self.app.deep_link_to_page(locators.DeepLink.MakeupCam_page, "com.cyberlink.youcammakeup")
+        # self.app.back_launcher().click_makeupcam_button().check_BIPA()
+        # self.app.findElement("id", "com.cyberlink.youcammakeup:id/cameraImage").click_makeupcam_button().check_BIPA()
 
     # def test_launcher_camera_button_is_show(self):
     #     page = YMK.launcher_page.Launcher(self.driver)

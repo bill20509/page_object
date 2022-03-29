@@ -25,8 +25,9 @@ class App:
             "noReset": True,
             "autoGrantPermissions": True,
             "newCommandTimeout": 60,
-            "autoLaunch": True,
+            "autoLaunch": False,
         }
+
     def set_platform(self, platform):
         self.caps["platformName"] = platform
         return self

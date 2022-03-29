@@ -1,9 +1,6 @@
 from libs.YMK.locators import MakeupCamLocators
 from libs.base import BasePage
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+from libs.YMK.launcher_page import Launcher
 
 
 class MakeupCam(BasePage):
@@ -11,6 +8,10 @@ class MakeupCam(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def check_BIPA_and_close(self):
+    def check_BIPA(self):
         self.click_element(MakeupCamLocators.BIPA_Agree)
         return MakeupCam(self.driver)
+
+    def back_launcher(self):
+        self.click_element(MakeupCamLocators.Back)
+        return Launcher(self.driver)
