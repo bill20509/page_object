@@ -8,8 +8,6 @@ class Launcher(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    from libs.YMK.YMK_base import YMKbase
-
     def click_makeupcam_button(self):
         self.click_element(LauncherLocators.Makeup_cam)
         return makeupcam_page.MakeupCam(self.driver)

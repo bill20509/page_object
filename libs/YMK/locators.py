@@ -59,3 +59,6 @@ class MeLocators:
 
 class DeepLink:
     MakeupCam_page = "ymk://action_makeupcam"
+    Bodytuner_page = "ymk://action_pickphoto/body_tuner"
+    Launcher_page = "ymk://launcher"
+    Aging_page = "ymk://action/ai_aging"

@@ -8,7 +8,6 @@ class BasePage(object):
 
     # Deep link
     def deeplink(self, page_link, package_name):
-        print("Go to: " + page_link)
         self.driver.execute_script(
             "mobile: deepLink",
             {

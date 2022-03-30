@@ -8,10 +8,10 @@ class MakeupCam(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def check_BIPA(self):
+    def click_BIPA_agree(self):
         self.click_element(MakeupCamLocators.BIPA_Agree)
         return MakeupCam(self.driver)
 
-    def back_launcher(self):
+    def click_back_launcher(self):
         self.click_element(MakeupCamLocators.Back)
         return launcher_page.Launcher(self.driver)
