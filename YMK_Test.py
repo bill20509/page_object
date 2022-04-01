@@ -22,7 +22,7 @@ class Test_YMK(object):
 
     def test_photo_edit_room(self):
         self.app.deeplink_to_Photomakeup().pick_photo("YouCam Makeup Sample", 4)\
-            .click_makeup_menu("Mouth").select_brand("PERFECT").select_colorball(2)
+            .click_makeup_menu("Mouth").select_brand("PERFECT").select_colorball(4).screenshot("aa.jpg").select_pattern("Holographic").screenshot("bb.jpg")
 
     @pytest.mark.test
     def test_aging(self):

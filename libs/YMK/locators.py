@@ -1,5 +1,6 @@
 # 各項element ID
 from selenium.webdriver.common.by import By
+
 from libs.element import Element
 
 
@@ -41,6 +42,7 @@ class PhotoMakeupLocators:
     brand_menu = Element("//*[@resource-id='com.cyberlink.youcammakeup:id/toolView']", By.XPATH, "Open brand menu")
     brand = Element("com.cyberlink.youcammakeup:id/skuItemVendorName", By.XPATH, "Select brand")
     content = Element("com.cyberlink.youcammakeup:id/item_color_content", By.XPATH, "Select content color ball")
+    pattern = Element("com.cyberlink.youcammakeup:id/camera_lipstick_pattern_text", By.XPATH, "Select pattern")
     # Looks = Element("//*[@resource-id='com.cyberlink.youcammakeup:id/makeup_menu_expandable_title'][@text='Looks']", By.XPATH, "Looks")
     # Mouth = Element("//*[@resource-id='com.cyberlink.youcammakeup:id/makeup_menu_expandable_title'][@text='Mouth']", By.XPATH, "Mouth")
 

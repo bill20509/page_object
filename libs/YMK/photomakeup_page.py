@@ -30,4 +30,8 @@ class Photomakeup(BasePage):
         self.select_element_by_number(PhotoMakeupLocators.content, number)
         return Photomakeup(self.driver)
 
+    def select_pattern(self, name):
+        self.click_element_by_name(PhotoMakeupLocators.pattern, name)
+        return Photomakeup(self.driver)
+
 
