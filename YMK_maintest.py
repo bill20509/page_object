@@ -16,4 +16,4 @@ pytest.main(['-s','./subpath1/test_module1.py'])        # -s: 顯示程序中的
 @pytest.mark.test "-m=test"
 '''
 if __name__ == '__main__':
-    pytest.main(['--html=result.html', '-s', '-v', '-m=test'])
+    pytest.main(['--html=result.html', '-s', '-m=not test'])

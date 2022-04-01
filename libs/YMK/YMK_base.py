@@ -15,6 +15,10 @@ class YMKbase(BasePage):
         self.deeplink(DeepLink.Launcher_page, package_name)
         return YMK.launcher_page.Launcher(self.driver)
 
+    def deeplink_to_Photomakeup(self):
+        self.deeplink(DeepLink.PhotoMakeup_page, package_name)
+        return YMK.photomakeup_page.Photomakeup(self.driver)
+
     def deeplink_to_MakeupCam(self):
         self.deeplink(DeepLink.MakeupCam_page, package_name)
         return YMK.makeupcam_page.MakeupCam(self.driver)

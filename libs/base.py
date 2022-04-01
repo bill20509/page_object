@@ -29,32 +29,26 @@ class BasePage(object):
             self.driver.find_element(element.element_type, element.element_id).click()
         except Exception as e:
             print(e)
-            print("Cant' find " + element.element_desc)
+            print("Can't find " + element.element_desc)
         return BasePage(self.driver)
 
-    def find_element(self, identify, element): # check element is exist or not
-        flag = None
+    # Click the element by name
+    def click_element_by_name(self, element, name):
+        element.element_id = "//*[@resource-id='{0}'][@text='{1}']".format(element.element_id, name)
         try:
-            if identify == "id":
-                self.driver.find_element(By.ID, element)
-            elif identify == "xpath":
-                self.driver.find_element(By.XPATH, element)
-            elif identify == "class":
-                self.driver.find_element(By.CLASS_NAME, element)
-            elif identify == "link text":
-                self.driver.find_element(By.LINK_TEXT, element)
-            elif identify == "partial link text":
-                self.driver.find_element(By.PARTIAL_LINK_TEXT, element)
-            elif identify == "name":
-                self.driver.find_element(By.NAME, element)
-            elif identify == "tag name":
-                self.driver.find_element(By.TAG_NAME, element)
-            elif identify == "css selector":
-                self.driver.find_element(By.CSS_SELECTOR, element)
-            flag = True
-            print(element + ' is exist')
-        except Exception:
-            flag = False
-            print(element + ' is not exist')
-        finally:
-            return self
+            self.driver.find_element(element.element_type, element.element_id).click()
+        except Exception as e:
+            print(e)
+            print("Can't find " + element.element_desc)
+        return BasePage(self.driver)
+
+    # Select element by number
+    def select_element_by_number(self, element, number):
+        element.element_id = "(//*[@resource-id='{0}'])[{1}]".format(element.element_id, number)
+        try:
+            self.driver.find_element(element.element_type, element.element_id).click()
+        except Exception as e:
+            print(e)
+            print("Can't find " + element.element_desc)
+        return BasePage(self.driver)
+
