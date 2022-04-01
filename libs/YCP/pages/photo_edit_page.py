@@ -1,4 +1,7 @@
-class EditPage:
+from YCP_base import YCPBase
+
+
+class PhotoEditPage(YCPBase):
     def __init__(self) -> None:
         pass
 
@@ -9,7 +12,8 @@ class EditPage:
         pass
 
     def open_tools(self):
-        pass
+        self.click_element("")
+        return self
 
     def goto_effects(self):
         pass

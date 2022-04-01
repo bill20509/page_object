@@ -1,3 +1,6 @@
+from YCP_base import YCPBase
+
+
 class BeautifyPage:
     def __init__(self) -> None:
         pass

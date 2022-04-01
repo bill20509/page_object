@@ -1,4 +1,7 @@
-class PhotoPickPage:
+from YCP_base import YCPBase
+
+
+class PhotoPickPage(YCPBase):
     def __init__(self) -> None:
         pass
 
