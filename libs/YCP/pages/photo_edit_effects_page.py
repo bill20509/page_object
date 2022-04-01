@@ -1,4 +1,4 @@
-from YCP_base import YCPBase
+from .YCP_base import YCPBase
 
 
 class PhotoEditEffectsPage(YCPBase):

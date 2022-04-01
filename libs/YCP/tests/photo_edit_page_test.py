@@ -1,7 +1,7 @@
 import pytest
 from libs.app import App
-from YCP.pages.launcher_page import LauncherPage
-from YCP.pages.photo_edit_page import PhotoEditPage
+from libs.YCP.pages.launcher_page import LauncherPage
+from libs.YCP.pages.photo_edit_page import PhotoEditPage
 # py.test --capture=no YMK_Test.py
 
 
@@ -17,7 +17,9 @@ class Test(object):
 
     @pytest.mark.test
     def test_photo_edit_tools(self):
-        a = self.app.deeplink_to_photo_edit().
+        self.app.deeplink_to_photo_edit()\
+            .open_tools()\
+            .click_crop_and_rotate()
 
     def teardown_method(self):  # quit driver when test case done
         self.driver.quit()
@@ -26,5 +28,5 @@ class Test(object):
 if __name__ == "__main__":
     t = Test()
     t.setup_method()
-    t.test_makeupcam()
+    t.test_photo_edit_tools()
     t.teardown_method()

@@ -1,3 +1,5 @@
 .idea/
 result.html
 screenshot/
+__pycache__/
+.DS_Store

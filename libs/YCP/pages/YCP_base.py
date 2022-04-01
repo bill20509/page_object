@@ -1,5 +1,9 @@
 from libs.base import BasePage
-from libs.YCP.pages.photo_edit_page import PhotoEditPage
+
+try:
+    from libs.YCP.pages.photo_edit_page import PhotoEditPage
+except ImportError:
+    pass
 
 
 class YCPBase(BasePage):
@@ -8,5 +12,5 @@ class YCPBase(BasePage):
 
     def deeplink_to_photo_edit(self):
         self.deeplink(
-            " ycp://action/pickphoto?editImageId=YouCamPerfectSample-18", "123")
+            "ycp://action/pickphoto?editImageId=YouCamPerfectSample-18", "123")
         return PhotoEditPage(self.driver)

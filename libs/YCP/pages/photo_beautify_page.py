@@ -1,7 +1,7 @@
-from YCP_base import YCPBase
+from .YCP_base import YCPBase
 
 
-class BeautifyPage:
+class BeautifyPage(YCPBase):
     def __init__(self) -> None:
         pass
 
@@ -22,3 +22,7 @@ class BeautifyPage:
 
     def click_body_tuner(self):
         pass
+
+
+if __name__ == "__main__":
+    pass

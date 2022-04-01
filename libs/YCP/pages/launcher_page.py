@@ -1,4 +1,4 @@
-from photo_pick_page import PhotoPickPage
+from .photo_pick_page import PhotoPickPage
 from libs.YCP.pages.YCP_base import YCPBase
 from libs.YCP.locator import eLauncher
 

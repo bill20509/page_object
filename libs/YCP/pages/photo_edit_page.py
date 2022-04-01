@@ -1,9 +1,11 @@
-from YCP_base import YCPBase
+from .YCP_base import YCPBase
+from libs.YCP.pages.photo_edit_tools_panel import PhotoEditToolsPanel
+from libs.YCP.locator import ePhotoEdit
 
 
 class PhotoEditPage(YCPBase):
     def __init__(self) -> None:
-        pass
+        super()
 
     def back(self):
         pass
@@ -12,8 +14,8 @@ class PhotoEditPage(YCPBase):
         pass
 
     def open_tools(self):
-        self.click_element("")
-        return self
+        self.click_element(ePhotoEdit.tools_button)
+        return PhotoEditToolsPanel(self.driver)
 
     def goto_effects(self):
         pass
