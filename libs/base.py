@@ -13,7 +13,9 @@ class BasePage(object):
         self.driver = driver
 
     # Deep link
-    def deeplink(self, page_link, package_name):
+    def deeplink(self, page_link, package_name=""):
+        if(package_name == ""):
+            package_name = self.driver.caps["appPackage"]
         self.driver.execute_script(
             "mobile: deepLink",
             {
@@ -33,7 +35,8 @@ class BasePage(object):
     # Click button (element id)
     def click_element(self, element):
         try:
-            self.driver.find_element(element.element_type, element.element_id).click()
+            self.driver.find_element(
+                element.element_type, element.element_id).click()
         except Exception as e:
             print(e)
             print("Can't find " + element.element_desc)
@@ -41,9 +44,11 @@ class BasePage(object):
 
     # Click the element by name (resource-id and text)
     def click_element_by_name(self, element, name):
-        element.element_id = "//*[@resource-id='{0}'][@text='{1}']".format(element.element_id, name)
+        element.element_id = "//*[@resource-id='{0}'][@text='{1}']".format(
+            element.element_id, name)
         try:
-            self.driver.find_element(element.element_type, element.element_id).click()
+            self.driver.find_element(
+                element.element_type, element.element_id).click()
         except Exception as e:
             print(e)
             print("Can't find " + element.element_desc)
@@ -51,9 +56,11 @@ class BasePage(object):
 
     # Select element by number (resource-id and index[])
     def select_element_by_number(self, element, number):
-        element.element_id = "(//*[@resource-id='{0}'])[{1}]".format(element.element_id, number)
+        element.element_id = "(//*[@resource-id='{0}'])[{1}]".format(
+            element.element_id, number)
         try:
-            self.driver.find_element(element.element_type, element.element_id).click()
+            self.driver.find_element(
+                element.element_type, element.element_id).click()
         except Exception as e:
             print(e)
             print("Can't find " + element.element_desc)
@@ -73,7 +80,8 @@ class BasePage(object):
         print("width %d, height %d" % (width, height))
         current_value = self.get_slider_value(element)
         target_value = float(target_value)
-        print("current_value %f, target_value %f" % (current_value, target_value))
+        print("current_value %f, target_value %f" %
+              (current_value, target_value))
 
         if current_value == target_value:
             return
@@ -85,7 +93,8 @@ class BasePage(object):
                                    {"duration": 0.01, "element": element, "fromX": from_x,
                                     "fromY": height * 0.5, "toX": to_x, "toY": height * 0.5})
         current_value = self.get_slider_value(element)
-        print("current_value %f, target_value %f" % (current_value, target_value))
+        print("current_value %f, target_value %f" %
+              (current_value, target_value))
 
         loop = 0
         while current_value != target_value and loop < 10:
@@ -99,7 +108,8 @@ class BasePage(object):
                                        {"duration": 0.01, "element": element, "fromX": from_x,
                                         "fromY": height * 0.5, "toX": to_x, "toY": height * 0.5})
             current_value = self.get_slider_value(element)
-            print("current_value %f, target_value %f" % (current_value, target_value))
+            print("current_value %f, target_value %f" %
+                  (current_value, target_value))
             loop += 1
 
     def __adjust_vertical_slider_to_value(self, element, target_value):
@@ -109,7 +119,8 @@ class BasePage(object):
         print("width %d, height %d" % (width, height))
         current_value = self.get_slider_value(element)
         target_value = float(target_value)
-        print("current_value %f, target_value %f" % (current_value, target_value))
+        print("current_value %f, target_value %f" %
+              (current_value, target_value))
 
         if current_value == target_value:
             return
@@ -121,7 +132,8 @@ class BasePage(object):
                                    {"duration": 0.01, "element": element, "fromX": width * 0.5,
                                     "fromY": from_y, "toX": width * 0.5, "toY": to_y})
         current_value = self.get_slider_value(element)
-        print("current_value %f, target_value %f" % (current_value, target_value))
+        print("current_value %f, target_value %f" %
+              (current_value, target_value))
 
         loop = 0
         while current_value != target_value and loop < 10:
@@ -135,7 +147,8 @@ class BasePage(object):
                                        {"duration": 0.01, "element": element, "fromX": width * 0.5,
                                         "fromY": from_y, "toX": width * 0.5, "toY": to_y})
             current_value = self.get_slider_value(element)
-            print("current_value %f, target_value %f" % (current_value, target_value))
+            print("current_value %f, target_value %f" %
+                  (current_value, target_value))
             loop += 1
 
     def get_slider_value(self, element):
@@ -144,7 +157,7 @@ class BasePage(object):
     def swipe_gesture(self, element, fromx=float, tox=float, fromy=float, toy=float, duration=int):
         width = element.size["width"]
         height = element.size["height"]
-        print("width %d, height %d" %(width, height))
+        print("width %d, height %d" % (width, height))
 
         from_x = width * fromx
         to_x = width * tox
@@ -163,25 +176,29 @@ class BasePage(object):
         current_time = time.time()
         path = self.__app_document_path() + folder
         try:
-            self.driver.execute_script("mobile:deleteFolder", {"remotePath": path})
+            self.driver.execute_script(
+                "mobile:deleteFolder", {"remotePath": path})
         except:
             print("deleteFolder: Folder not exist: " + path)
         if self.DEBUG_PERFORMANCE:
-            print("[%s] execution time = %s (s)" % (self.delete_folder_in_app_document.__name__, (time.time() - current_time)))
+            print("[%s] execution time = %s (s)" % (
+                self.delete_folder_in_app_document.__name__, (time.time() - current_time)))
 
     def push_file_to_app_document(self, file_path):
         current_time = time.time()
         path = self.__app_document_path() + file_path
         self.driver.push_file(path, None, file_path)
         if self.DEBUG_PERFORMANCE:
-            print("[%s] execution time = %s (s)" % (self.push_file_to_app_document.__name__, (time.time() - current_time)))
+            print("[%s] execution time = %s (s)" % (
+                self.push_file_to_app_document.__name__, (time.time() - current_time)))
 
     def pull_file_from_app_document(self, file_path):
         current_time = time.time()
         path = self.__app_document_path() + file_path
         file = self.driver.pull_file(path)
         if self.DEBUG_PERFORMANCE:
-            print("[%s] execution time = %s (s)" % (self.pull_file_from_app_document.__name__, (time.time() - current_time)))
+            print("[%s] execution time = %s (s)" % (
+                self.pull_file_from_app_document.__name__, (time.time() - current_time)))
         return file
 
     def pull_folder_from_app_document(self, file_path):
@@ -189,7 +206,8 @@ class BasePage(object):
         path = self.__app_document_path() + file_path
         file = self.driver.pull_folder(path)
         if self.DEBUG_PERFORMANCE:
-            print("[%s] execution time = %s (s)" % (self.pull_folder_from_app_document.__name__, (time.time() - current_time)))
+            print("[%s] execution time = %s (s)" % (
+                self.pull_folder_from_app_document.__name__, (time.time() - current_time)))
         return file
 
     def compare_photo(self, basephotoName=None, currentphotoName=None, diffName=None, resultmatch=0, threshold=0.10):
@@ -204,4 +222,3 @@ class BasePage(object):
                     result_image.save(filename=diffresult)
                 print(result_metric)
                 assert float(result_metric) == resultmatch
-

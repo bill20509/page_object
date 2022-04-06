@@ -1,11 +1,12 @@
+
 from .YCP_base import YCPBase
 from libs.YCP.pages.photo_edit_tools_panel import PhotoEditToolsPanel
 from libs.YCP.locator import ePhotoEdit
 
 
 class PhotoEditPage(YCPBase):
-    def __init__(self) -> None:
-        super()
+    def __init__(self, driver) -> None:
+        super().__init__(driver)
 
     def back(self):
         pass
